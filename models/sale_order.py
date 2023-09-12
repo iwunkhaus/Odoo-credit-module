@@ -6,6 +6,7 @@ class SaleOrder(models.Model):
 
     partner_credit_limit = fields.Float(related='partner_id.credit_limit', string='Límite de Crédito', readonly=True)
     partner_credit_used = fields.Float(related='partner_id.credit_used', string='Crédito Utilizado', readonly=True)
+    partner_credit_active = fields.Boolean(related='partner_id.credit_active', string='Crédito Activo', readonly=True)
 
     @api.onchange('partner_id')
     def _onchange_partner_id_credit_limit(self):
