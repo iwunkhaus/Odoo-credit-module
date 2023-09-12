@@ -10,7 +10,7 @@
             </xpath>
             <!-- Modificación para hacer el campo payment_term_id de solo lectura cuando el crédito está desactivado -->
             <xpath expr="//field[@name='payment_term_id']" position="attributes">
-                <attribute name="attrs">{'readonly': [('partner_id.credit_active', '=', False)]}</attribute>
+                <attribute name="attrs">{'readonly': [('partner_credit_active', '=', False)]}</attribute>
             </xpath>
         </field>
     </record>
