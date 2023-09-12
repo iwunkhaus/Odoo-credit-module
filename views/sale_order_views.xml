@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="view_order_form" model="ir.ui.view">
         <field name="name">sale.order.form.inherit.credit</field>
@@ -6,8 +5,12 @@
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='partner_id']" position="after">
-                    <field name="partner_credit_limit" readonly="1" string="Límite de Crédito"/>
-                    <field name="partner_credit_used" readonly="1" string="Crédito Utilizado"/>
+                <field name="partner_credit_limit" readonly="1" string="Límite de Crédito"/>
+                <field name="partner_credit_used" readonly="1" string="Crédito Utilizado"/>
+            </xpath>
+            <!-- Modificación para hacer el campo payment_term_id de solo lectura cuando el crédito está desactivado -->
+            <xpath expr="//field[@name='payment_term_id']" position="attributes">
+                <attribute name="attrs">{'readonly': [('partner_id.credit_active', '=', False)]}</attribute>
             </xpath>
         </field>
     </record>
