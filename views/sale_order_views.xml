@@ -7,6 +7,7 @@
             <xpath expr="//field[@name='partner_id']" position="after">
                 <field name="partner_credit_limit" readonly="1" string="Límite de Crédito"/>
                 <field name="partner_credit_used" readonly="1" string="Crédito Utilizado"/>
+                <field name="partner_credit_active" invisible="1"/>
             </xpath>
             <!-- Modificación para hacer el campo payment_term_id de solo lectura cuando el crédito está desactivado -->
             <xpath expr="//field[@name='payment_term_id']" position="attributes">
